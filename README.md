@@ -12,8 +12,8 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## Contains
 
 ### Dependendcies
-- React 15.4.2
-- React Redux 5.0.3
+- React 15.5.4
+- React Redux 5.0.5
 - Redux 3.6
 - Redux thunk 2.2.0
 
