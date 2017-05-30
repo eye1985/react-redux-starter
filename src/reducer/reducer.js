@@ -1,20 +1,25 @@
-import { combineReducers } from 'redux';
-import {ACTION_TYPE, action} from '../action/action';
+import {
+  ACTION_TYPE,
+  OUTPUT_TEXT,
+  THUNK_ACTION
+} from '../action';
 
-
-const initState = {
-    message: `Hello there!`
-};
-
-function reducerOne(state = {message:'hello world'},action){
+export function reducerOne(state = {message:'hello world'}, action){
     switch(action.type){
         case ACTION_TYPE:
-            return state
+            return {...state, message: action.payload};
         default:
-            return state
+            return state;
     }
 }
 
-export default combineReducers({
-    reducerOne
-});
+export function reducerTwo(state = {message:'I love cake'}, action){
+    switch(action.type){
+        case OUTPUT_TEXT:
+            return {...state, message: action.payload};
+        case THUNK_ACTION:
+            return {...state, message: 'Thunk action called'};
+        default:
+            return state;
+    }
+}
