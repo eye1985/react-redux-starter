@@ -30,6 +30,3 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
     npm run bulid:dev // Generate a developer build under dist
     npm run build:prod // Generate a production build under dist
 ```
-
-## Known Issue:
-Currently build:prod does not work. This is related to the style loaders. This will be fixed soon.
