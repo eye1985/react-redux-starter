@@ -1,4 +1,4 @@
-# React redux starter kit
+# React redux starter kit v1.2
 
 ## Install
 
@@ -16,9 +16,12 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - React Redux 5.0.5
 - Redux 3.6
 - Redux thunk 2.2.0
+- React-Hot-Loader
+- Redux-Devtools-Extension
 
 ### Dev dependencies
 - Babel 6.24.0
+- Babel polyfill
 - Webpack 2
 - Webpack dev server
 - CSS/Style/SASS loaders
