@@ -30,10 +30,6 @@ const LOCAL = isDevelopment ? [
   './src/index.js'
 ];
 
-const UglifyJsPlugin = new webpack.optimize.UglifyJsPlugin({
-  compressor: { warnings: false }
-});
-
 const plugins = [
   extractSass,
   new webpack.optimize.CommonsChunkPlugin({
@@ -50,10 +46,6 @@ const plugins = [
     }
   })
 ];
-
-if(!isDevelopment){
-  plugins.push(UglifyJsPlugin);
-}
 
 module.exports = {
     plugins,
