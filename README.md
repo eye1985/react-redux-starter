@@ -1,4 +1,4 @@
-# React redux starter kit v1.2
+# React redux starter pack
 
 ## Install
 
