@@ -13,38 +13,38 @@ const extractSass = new ExtractTextPlugin({
 });
 
 const VENDOR_LIBS = [
-  "react",
-  "react-dom",
-  "redux",
-  "react-redux",
-  "redux-thunk"
+    "react",
+    "react-dom",
+    "redux",
+    "react-redux",
+    "redux-thunk"
 ];
 
 const LOCAL = isDevelopment ? [
-  'webpack-dev-server/client?http://localhost:3000',
-  'webpack/hot/only-dev-server',
-  'react-hot-loader/patch',
-  './src/index.js'
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server',
+    'react-hot-loader/patch',
+    './src/index.js'
 ] : [
-  'babel-polyfill',
-  './src/index.js'
+    'babel-polyfill',
+    './src/index.js'
 ];
 
 const plugins = [
-  extractSass,
-  new webpack.optimize.CommonsChunkPlugin({
-    names:['vendor','manifest']
-  }),
+    extractSass,
+    new webpack.optimize.CommonsChunkPlugin({
+        names: ['vendor', 'manifest']
+    }),
 
-  new HtmlWebpackPlugin({
-    template:'src/index.html'
-  }),
+    new HtmlWebpackPlugin({
+        template: 'src/index.html'
+    }),
 
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify(isDevelopment ? 'development':'production')
-    }
-  })
+    new webpack.DefinePlugin({
+        'process.env': {
+            NODE_ENV: JSON.stringify(isDevelopment ? 'development' : 'production')
+        }
+    })
 ];
 
 module.exports = {
@@ -53,40 +53,65 @@ module.exports = {
 
     entry: {
         bundle: LOCAL,
-        vendor : VENDOR_LIBS
+        vendor: VENDOR_LIBS
     },
 
     output: {
         filename,
-        path : outputPath
+        path: outputPath
     },
 
-    module : {
-        rules : [
+    module: {
+        rules: [
             {
                 test: /\.js$/,
-                exclude : /node_modules/,
-                loader:'babel-loader'
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            },
+
+            {
+                test: /\.css/,
+                use: isDevelopment ? ['style-loader', 'css-loader'] : extractSass.extract({
+                    use: [
+                        {loader: "css-loader"}
+                    ],
+                    fallback: "style-loader"
+                })
             },
 
             {
                 test: /\.scss$/,
-                exclude: /node_modules/,
                 use: isDevelopment ? ['style-loader', 'css-loader', 'sass-loader'] : extractSass.extract({
                     use: [
-                      {loader: "css-loader"},
-                      {loader: "sass-loader"}
+                        {loader: "css-loader"},
+                        {loader: "sass-loader"}
                     ],
                     fallback: "style-loader"
                 })
+            },
+
+            {
+                test: /\.(ttf|eot|woff|woff2)$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'fonts/[name].[ext]'
+                }
+            },
+
+            {
+                test: /\.(svg|jpg|jpeg|png|bmp)$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'images/[name].[ext]'
+                }
             }
         ]
     },
 
-    devServer : {
+    devServer: {
         contentBase: outputPath,
         port: 3000,
-        hot:true,
-        compress:true
+        hot: true,
+        compress: true
     }
 };

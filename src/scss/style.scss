@@ -1,21 +1,29 @@
+//Example usage with scss-loader
+
+$bg-color : grey !default;
+
+* {
+  &,
+  &:after,
+  &:before{
+    box-sizing: border-box;
+  }
+}
+
 html,
-body{
-    margin:0;
-    padding:0;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    background:grey;
-    font-size:16px;
+body {
+  background: $bg-color;
+  font-size: 16px;
 }
 
-.container{
-    margin:20px auto;
-    background: #fff;
-    padding: 20px;
-    max-width:1280px;
-}
-
-button{
-  margin: 0 0 5px 10px;
+.container {
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  max-width: 1280px;
 }
