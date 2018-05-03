@@ -12,20 +12,22 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## Contains
 
 ### Dependendcies
-- React 15.6.1
-- React Redux 5.0.6
-- Redux 3.7.2
+- React 16.3.2
+- React Redux 5.0.7
+- Redux 4.0.0
 - Redux thunk 2.2.0
-- React-Hot-Loader
+- React-Hot-Loader 
 - Redux-Devtools-Extension
 
 ### Dev dependencies
-- Babel 6.24.0
+- Babel 6.26.0
 - Babel polyfill
-- Webpack 3
+- Webpack 4
 - Webpack dev server
 - CSS/Style/SASS loaders
 - Node-Sass
+
+... and more
 
 ## Commands
 ```javascript

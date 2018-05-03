@@ -8,7 +8,7 @@ const filename = isDevelopment ? '[name].js' : '[name].[chunkhash].js';
 const outputPath = path.resolve(__dirname, 'dist');
 
 const extractSass = new ExtractTextPlugin({
-    filename: "[name].[contenthash].css",
+    filename: "[name].[hash].css",
     disable: isDevelopment
 });
 
@@ -30,11 +30,10 @@ const LOCAL = isDevelopment ? [
     './src/index.js'
 ];
 
+const mode = isDevelopment ? 'development' : 'production';
+
 const plugins = [
     extractSass,
-    new webpack.optimize.CommonsChunkPlugin({
-        names: ['vendor', 'manifest']
-    }),
 
     new HtmlWebpackPlugin({
         template: 'src/index.html'
@@ -49,6 +48,8 @@ const plugins = [
 
 module.exports = {
     plugins,
+    mode,
+
     devtool: 'source-map',
 
     entry: {
@@ -59,6 +60,13 @@ module.exports = {
     output: {
         filename,
         path: outputPath
+    },
+
+    optimization: {
+        splitChunks: { // CommonsChunkPlugin()
+            name: 'vendor',
+            minChunks: 2
+        }
     },
 
     module: {
