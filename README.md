@@ -1,5 +1,5 @@
 # DEPRICATED 
-Use [create-react-app instead](https://github.com/facebook/create-react-app)
+Use [create-react-app](https://github.com/facebook/create-react-app) instead.
 
 
 ## Install
