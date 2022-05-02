@@ -1,4 +1,4 @@
-# DEPRICATED 
+# DEPRECATED 
 Use [create-react-app](https://github.com/facebook/create-react-app) instead.
 
 
