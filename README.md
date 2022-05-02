@@ -1,7 +1,6 @@
 # DEPRICATED 
-Use create-react-app instead
+Use [create-react-app instead](https://github.com/facebook/create-react-app)
 
-# React redux starter pack
 
 ## Install
 
