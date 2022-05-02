@@ -1,3 +1,6 @@
+# DEPRICATED 
+Use create-react-app instead
+
 # React redux starter pack
 
 ## Install
